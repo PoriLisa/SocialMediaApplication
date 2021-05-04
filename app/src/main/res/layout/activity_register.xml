@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="registerVm"
+            type="com.lissa.socialmediaapplication.register.RegisterViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/white"
+        tools:context=".ui.SignupActivity">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@android:drawable/picture_frame"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_your_name"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName"
+            android:maxLength="12"
+            app:layout_constraintBottom_toTopOf="@+id/et_email"
+            android:paddingStart="8dp"
+            android:paddingLeft="8dp"
+            android:text="@={registerVm.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_email_id"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:paddingStart="8dp"
+            android:paddingLeft="8dp"
+            android:text="@={registerVm.email}"
+            app:layout_constraintEnd_toEndOf="@+id/et_name"
+            app:layout_constraintStart_toStartOf="@+id/et_name"
+            app:layout_constraintTop_toBottomOf="@+id/et_name" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_password"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:maxLength="6"
+            android:paddingStart="8dp"
+            android:paddingLeft="8dp"
+            android:text="@={registerVm.password}"
+            app:layout_constraintEnd_toEndOf="@+id/et_email"
+            app:layout_constraintStart_toStartOf="@+id/et_email"
+            app:layout_constraintTop_toBottomOf="@+id/et_email" />
+
+        <EditText
+            android:id="@+id/et_confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_confirm_password"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:maxLength="6"
+            android:paddingStart="8dp"
+            android:paddingLeft="8dp"
+            android:text="@={registerVm.confirmpassword}"
+            app:layout_constraintEnd_toEndOf="@+id/et_password"
+            app:layout_constraintStart_toStartOf="@+id/et_password"
+            app:layout_constraintTop_toBottomOf="@+id/et_password" />
+
+        <Button
+            android:id="@+id/btn_signin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@color/black"
+            android:gravity="center"
+            android:onClick="@{()->registerVm.sumbitButton()}"
+            android:text="Register"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/tv_move_to_login"
+            app:layout_constraintEnd_toEndOf="@+id/et_confirm_password"
+            app:layout_constraintStart_toStartOf="@+id/et_confirm_password"
+            app:layout_constraintTop_toBottomOf="@+id/et_confirm_password" />
+
+        <TextView
+            android:id="@+id/tv_move_to_login"
+            android:text="Login"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/btn_signin"
+            app:layout_constraintStart_toStartOf="@+id/btn_signin"
+            app:layout_constraintTop_toBottomOf="@+id/btn_signin"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
